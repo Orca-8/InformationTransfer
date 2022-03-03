@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>get</title>
+    <link href="/static/index.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/jquery-3.6.0.min.js"></script>
+</head>
+
+<style>
+    .a {
+        width: 300px;
+    }
+</style>
+
+<body style="text-align: center">
+    <h2>在线文本/文件传输</h2>
+    <form id="form" action="/upload" method="post" enctype="multipart/form-data">
+        <textarea id="text" type="text" name="text" style="width: 300px; height: 300px;" cols="19"></textarea></br>
+    </form>
+</body>
+</html>
+
+<script>
+    $.get("/getText", function(data){
+        //alert("Data Loaded: " + data.msg);
+        $("#text").text(data.msg)
+    });
+
+    $.get("/getFiles", function(data){
+        //alert("Data Loaded: " + data.msg);
+        console.log(data)
+        let files = data.files
+        let file = ""
+        for (let i = 0; i < files.length; i++) {
+            file = "<a href=\"/files/"+files[i]+"\" download=\""+files[i]+"\" class=\"btn-two green block\" style=\"width: 300px\">"+files[i]+"</a></<br>"
+            $("#form").append(file)
+        }
+    });
+</script>

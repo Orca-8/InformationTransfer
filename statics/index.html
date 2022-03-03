@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <link href="/static/index.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body style="text-align: center">
+    <h2>在线文本/文件传输</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <textarea type="text" name="text" style="width: 300px; height: 300px;" cols="19"></textarea></br>
+        <input type="file" multiple class="file" name="files">
+        <button class="btn-two green block" style="width: 300px; height: 50px" type="submit">提交</button>
+    </form>
+</body>
+</html>
